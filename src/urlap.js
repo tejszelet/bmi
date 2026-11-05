@@ -1,4 +1,4 @@
-export function renderForm(container, onResult) {
+export function renderForm(container) {
   container.innerHTML = `
     <form class="panel">
       <h2>Számítsd ki a BMI-értékedet!</h2>
@@ -25,7 +25,6 @@ export function renderForm(container, onResult) {
 
     if (suly <= 0 || magassagCm <= 0) {
       result.innerHTML = '<div class="result">Adj meg érvényes számokat!</div>';
-      onResult(null);
       return;
     }
 
@@ -67,6 +66,5 @@ export function renderForm(container, onResult) {
         <small>${uzenet}</small>
       </div>`;
 
-    onResult(id);
   });
 }
