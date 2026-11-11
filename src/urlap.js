@@ -32,28 +32,35 @@ export function renderForm(container) {
     const bmi = suly / (magassagM * magassagM);
     const bmiSzoveg = bmi.toFixed(1).replace('.', ',');
 
-    let id, nev, uzenet;
+
+    let id, nev, uzenet,kartyaSzam;
     if (bmi < 18.5) {
+      kartyaSzam=1;
       id = 'alultaplalt';
       nev = 'Alultáplált';
       uzenet = 'Fontos, hogy növeld a tápanyagbevitelt.';
     } else if (bmi < 25) {
+      kartyaSzam=2;
       id = 'normal';
       nev = 'Normál testsúly';
       uzenet = 'Egészséges testtömeg.';
     } else if (bmi < 30) {
+      kartyaSzam=3;
       id = 'tulsulyos';
       nev = 'Túlsúlyos';
       uzenet = 'Fontos odafigyelni az életmódra.';
     } else if (bmi < 35) {
+      kartyaSzam=4;
       id = 'elhizas1';
       nev = 'Elhízás I. fokozat';
       uzenet = 'Javasolt életmódváltás.';
     } else if (bmi < 40) {
+      kartyaSzam=5;
       id = 'elhizas2';
       nev = 'Elhízás II. fokozat';
       uzenet = 'Orvosi segítség ajánlott.';
     } else {
+      kartyaSzam=6;
       id = 'elhizas3';
       nev = 'Elhízás III. fokozat';
       uzenet = 'Súlyos egészségügyi kockázat.';
@@ -66,5 +73,12 @@ export function renderForm(container) {
         <small>${uzenet}</small>
       </div>`;
 
+    const kartyak = document.querySelectorAll('.kartya');
+    kartyak.forEach(k => k.classList.remove('kiemelt'));
+
+    document.querySelector('[data-id="' + kartyaSzam + '"]').classList.add('kiemelt');
+
   });
+
+
 }
