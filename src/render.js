@@ -12,7 +12,7 @@ export function renderCards(arr) {
 
     return `
       <div class="kartya" data-id="${obj.id}">
-        <img src="src/${obj.image}">
+        <img src="/${obj.image}">
         <p class="tartomany">${tartomany}</p>
         <h3>${obj.category}</h3>
         <p class="uzenet">${obj.message}</p>
